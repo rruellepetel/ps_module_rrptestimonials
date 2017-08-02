@@ -3,4 +3,6 @@
 if (!defined('_PS_VERSION_')) {
     exit;
 }
-require('classes/RrpTestimonials.php');
+
+require_once('classes/RrpTestimonials.php');
+require_once('models/Testimonials.php');

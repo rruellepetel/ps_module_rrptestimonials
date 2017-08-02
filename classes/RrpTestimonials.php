@@ -48,7 +48,7 @@ class RrpTestimonials extends Module {
 
         $tab->name[(int) $lang['id_lang']] = 'Testimonials';
 
-        $tab->class_name = 'RrpTestimonials';
+        $tab->class_name = 'AdminRrpTestimonials';
 
         $tab->module = $this->name;
 
@@ -106,7 +106,7 @@ class RrpTestimonials extends Module {
 
     {
 
-        $sql = 'CREATE TABLE IF NOT EXISTS `'._DB_PREFIX_.'testimonials` (
+        $sql = 'CREATE TABLE IF NOT EXISTS `'._DB_PREFIX_.'rrptestimonials` (
 
             `id_rrptestimonials` int(11) NOT NULL AUTO_INCREMENT,
 
@@ -126,7 +126,7 @@ class RrpTestimonials extends Module {
 
     {
 
-             $sql = 'DROP TABLE '._DB_PREFIX_.'testimonials';
+             $sql = 'DROP TABLE '._DB_PREFIX_.'rrptestimonials';
 
              Db::getInstance()->execute($sql);
 
