@@ -30,6 +30,7 @@ class RrpTestimonials extends Module {
         if (!parent::install()
             || !$this->addAdminTab()
             || !$this->installDb()
+            || !$this->registerHook('displayHome')
         ) {
             return false;
         }
@@ -66,7 +67,7 @@ class RrpTestimonials extends Module {
 
     {
 
-        $classNames = array('Testimonials' => 'RrpTestimonials');
+        $classNames = array('Testimonials' => 'AdminRrpTestimonials');
 
         $return = true;
 
@@ -134,4 +135,15 @@ class RrpTestimonials extends Module {
 
     }
 
+    public function hookDisplayHome($params)
+    {
+
+        $this->context->smarty->assign(
+      array(
+          'testimonial' => Configuration::get('testimonial'),
+          'testimonial_link' => $this->context->link->getModuleLink('rrptestimonials', 'display'),
+      )
+  );
+        return $this->display(_PS_MODULE_DIR_.$this->name, 'testimonial.tpl');
+    }
 }
