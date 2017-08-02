@@ -14,7 +14,6 @@
             'fields' => array(
                 'author' => array('type' => self::TYPE_STRING, 'validate' => 'isString'),
                 'testimonial' => array('type' => self::TYPE_STRING, 'validate' => 'isString'),
-                'date_creation' => array('type' => self::TYPE_DATE, 'validate' => 'isString'),
             ),
         );
     }

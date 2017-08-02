@@ -115,7 +115,7 @@ class RrpTestimonials extends Module {
 
             `testimonial` varchar(200) NOT NULL,
 
-            `date_creation` datetime NOT NULL,
+            `date_creation` DATETIME DEFAULT CURRENT_TIMESTAMP,
 
             PRIMARY KEY (`id_rrptestimonials`))';
 

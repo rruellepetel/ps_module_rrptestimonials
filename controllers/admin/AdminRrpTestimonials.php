@@ -44,11 +44,6 @@ class AdminRrpTestimonialsController extends ModuleAdminController
       'name' => 'testimonial',
       'label'=> 'Testimonial'
      ),
-    array(
-      'type' => 'date',
-      'name' => 'date',
-      'label'=> 'Date'
-     ),
   ),
   'submit' => array(
     'title' => $this->l('Save'),

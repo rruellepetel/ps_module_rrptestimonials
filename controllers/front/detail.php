@@ -19,9 +19,9 @@ class rrptestimonialsdetailModuleFrontController extends ModuleFrontController
      function getPost(int $id){
 
       $dbquery = new DbQuery();
-      $dbquery->select('id_blog,blog_name,blog_description,date_blog');
-      $dbquery->from('blog');
-      $dbquery->where('id_blog ='.$id);
+      $dbquery->select('id_rrptestimonials,author,testimonial,date_creation');
+      $dbquery->from('rrptestimonials');
+      $dbquery->where('id_rrptestimonials ='.$id);
 
       return Db::getInstance()->ExecuteS($dbquery);
     }
