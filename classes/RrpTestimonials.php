@@ -29,6 +29,7 @@ class RrpTestimonials extends Module {
 
         if (!parent::install()
             || !$this->addAdminTab()
+            || !$this->installDb()
         ) {
             return false;
         }
@@ -45,7 +46,7 @@ class RrpTestimonials extends Module {
 
         foreach(Language::getLanguages(false) as $lang)
 
-        $tab->name[(int) $lang['id_lang']] = 'Blog';
+        $tab->name[(int) $lang['id_lang']] = 'Testimonials';
 
         $tab->class_name = 'RrpTestimonials';
 
@@ -65,7 +66,7 @@ class RrpTestimonials extends Module {
 
     {
 
-        $classNames = array('admin_blog' => 'RrpTestimonials');
+        $classNames = array('Testimonials' => 'RrpTestimonials');
 
         $return = true;
 
@@ -89,6 +90,7 @@ class RrpTestimonials extends Module {
 
 
             || !$this->removeAdminTab()
+            || !$this->uninstallDb()
 
         ) {
 
@@ -97,6 +99,38 @@ class RrpTestimonials extends Module {
         }
 
         return true;
+
+    }
+
+    public  function installDb()
+
+    {
+
+        $sql = 'CREATE TABLE IF NOT EXISTS `'._DB_PREFIX_.'testimonials` (
+
+            `id_rrptestimonials` int(11) NOT NULL AUTO_INCREMENT,
+
+            `author` varchar(50) NOT NULL,
+
+            `testimonial` varchar(200) NOT NULL,
+
+            `date_creation` datetime NOT NULL,
+
+            PRIMARY KEY (`id_rrptestimonials`))';
+
+        return Db::getInstance()->execute($sql);
+
+    }
+
+    public function uninstallDb()
+
+    {
+
+             $sql = 'DROP TABLE '._DB_PREFIX_.'testimonials';
+
+             Db::getInstance()->execute($sql);
+
+             return true;
 
     }
 
